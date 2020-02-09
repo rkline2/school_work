@@ -66,7 +66,7 @@ int main()
        cout << "The valid records number is: " << record_number << endl;
        cout << " " << endl;  
 
-       average = (first_grade + second_grade + third_grade)/3;
+       average = (first_grade + second_grade + third_grade)/record_number;
 
        cout << name << " your average is: " << average << endl;
 
