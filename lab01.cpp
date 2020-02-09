@@ -2,56 +2,73 @@
 #include <string>
 using namespace std;
 
-void grade_entry()
+float get_grade(float grade)
 {
-    float grade = 0.0; 
-    int total_attempts = 0;
-    bool valid = true;    
+        int total_attempts = 0;
+        bool valid = true;   
 
-    cout << "Enter a grade: " << endl;
-    cin >> grade;
-
-    total_attempts += 1;
-    
-    if(grade < 0 || grade > 100)
-        valid = false;
-
-    while(cin.fail() || valid == false)
-    {
-        cout << "Invalid input. Enter a number: " << endl;
-        cin.clear();
-        cin.ignore(256, '\n');
+        cout << "Enter a grade between 0 - 100: ";
         cin >> grade;
 
+        total_attempts += 1;
+
         if(grade < 0 || grade > 100)
-                valid = false;
-        else
+            valid = false;
+
+        while(cin.fail() || valid == false)
         {
-                total_attempts += 1;
-                valid = true;
+            cout << "Invalid input. Enter a grade between 0 - 100: ";
+            cin.clear();
+            cin.ignore(256, '\n');
+            cin >> grade;
+
+            total_attempts += 1;
+
+            if(grade < 0 || grade > 100)
+                    valid = false;
+            else
+                    valid = true;
         }
-    }
-    
-    cout << "Your grade is valid!" << endl;
-    cout << "The total attempt times are: " << total_attempts << endl;
+
+        cout << "Your grade is valid!" << endl;
+        cout << "The total attempt times are: " << total_attempts << endl;
+
+        return grade;
 }
 
 int main()
 {
+       string name;
+       int sum = 0;
+       int record_number = 0;
 
-   string name;
-   int sum = 0;
-   int record_number = 0;
-   /* 
-   cout << "Enter your first and last name: " << endl;
-   getline(cin, name);
-   */   
+       float first_grade = 0.0;
+       float second_grade = 0.0;
+       float third_grade = 0.0;
 
-   grade_entry();
+       float average = 0.0;
 
-   //record_number += 1; 
-   //cout << "Your name is: " << name << endl;
-    
-   //cout << "The valid records number is: " << record_number << endl;
-   return 0;
+       cout << "Enter your first and last name: ";
+       getline(cin, name);
+
+       first_grade = get_grade(first_grade);
+       record_number += 1; 
+       cout << "The valid records number is: " << record_number << endl;
+       cout << " " << endl;   
+
+       second_grade = get_grade(second_grade);
+       record_number += 1; 
+       cout << "The valid records number is: " << record_number << endl;
+       cout << " " << endl;  
+
+       third_grade = get_grade(third_grade);
+       record_number += 1; 
+       cout << "The valid records number is: " << record_number << endl;
+       cout << " " << endl;  
+
+       average = (first_grade + second_grade + third_grade)/3;
+
+       cout << name << " your average is: " << average << endl;
+
+       return 0;
 }
