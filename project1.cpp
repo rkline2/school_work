@@ -7,12 +7,33 @@
 
 using namespace std;
 
-void printArray(char array[], int strLength)
+void printBoard(char testFile[], char line[])
 {
-        for(int i=0; i<strLength; i++)
+        //creation of ifstream class object to read file
+        ifstream inputStream;
+
+        //open file 
+        inputStream.open(testFile);
+
+        int i = 0, row = 1;
+
+        cout << "    1   2   3   4" << endl << row << "|  ";
+        
+        while(i<15)
         {
-                cout << array[i] << " ";
+                //read line from file
+                inputStream >> line;
+                cout << line << "|  ";
+                i++;
+
+                //creates new row after 4 cols created
+                if(i%4==0)
+                {
+                        row++;
+                        cout << endl << row << "|  ";
+                }
         }
+        cout << endl << endl;
 }
 
 
@@ -24,28 +45,7 @@ int main()
         cin >> testFile;
         cout << "Test file chosen: " << testFile << endl << endl;
 
-        ifstream inputStream;
-
-        inputStream.open(testFile);
-
-        int i = 0, row = 1;
-
-        cout << "    1   2   3   4" << endl << row << "|  ";
-        
-        while(i<15)
-        {
-                inputStream >> line;
-                cout << line << "|  ";
-                i++;
-
-                if(i%4==0)
-                {
-                        row++;
-                        cout << endl << row << "|  ";
-                }
-        }
-
-        cout << endl << endl;
+        printBoard(testFile, line);
 
         return 0;
 }
