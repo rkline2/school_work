@@ -7,6 +7,20 @@
 
 using namespace std;
 
+
+
+int checkRow(int i, int row)
+{
+        //creates new row after 4 cols created
+        if(i%4==0)
+        {
+                row++;
+                cout << endl << row << "|  ";
+        }
+
+        return row;
+}
+
 void printBoard(char testFile[], char line[])
 {
         //creation of ifstream class object to read file
@@ -16,23 +30,27 @@ void printBoard(char testFile[], char line[])
         inputStream.open(testFile);
 
         int i = 0, row = 1;
+        int num = 0;
 
         cout << "    1   2   3   4" << endl << row << "|  ";
-        
+
         while(i<15)
         {
-                //read line from file
-                inputStream >> line;
-                cout << line << "|  ";
-                i++;
+                //read line/num from file
+                inputStream >> num;
 
-                //creates new row after 4 cols created
-                if(i%4==0)
+                if(num>9)
                 {
-                        row++;
-                        cout << endl << row << "|  ";
+                        cout << num << " |  ";
+                        row = checkRow(i, row);
+                        i++;
                 }
+                else
+                        cout << num << "| ";
+                        row = checkRow(i, row);
+                        i++;
         }
+
         cout << endl << endl;
 }
 
