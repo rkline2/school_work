@@ -56,12 +56,16 @@ void printBoard(char testFile[])
                         row = checkRow(i, row);
                         col = checkCol(i, col);
                         i++;
-                } else if(num>9) {
+                } 
+                else if(num>9) 
+                {
                         row = checkRow(i, row);
                         col = checkCol(i, col);
                         cout << num << "|  ";
                         i++;
-                } else {
+                } 
+                else 
+                {
                         row = checkRow(i, row);
                         col = checkCol(i, col);
                         cout << " " << num << "|  ";
