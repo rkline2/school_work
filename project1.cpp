@@ -18,7 +18,6 @@ int checkRow(int i, int row)
         return row;
 }
 
-
 int checkCol(int i, int col)
 {
         //restart col after new row is created
