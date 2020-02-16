@@ -7,8 +7,6 @@
 
 using namespace std;
 
-
-
 int checkRow(int i, int row)
 {
         //creates new row after 4 cols created
