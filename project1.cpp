@@ -21,7 +21,7 @@ int checkRow(int i, int row)
 
 int checkCol(int i, int col)
 {
-        //creates new row after 4 cols created
+        //restart col after new row is created
         if(i%4==0)
                 col = 1;
         else
