@@ -4,9 +4,7 @@
 #include <iomanip>
 #include <cmath>
 #include <cstdlib>
-
 using namespace std;
-
 
 int checkRow(int i, int row)
 {
@@ -53,7 +51,6 @@ void printBoard(char testFile[])
 
         cout << endl << endl;
 }
-
 
 int main() 
 {
