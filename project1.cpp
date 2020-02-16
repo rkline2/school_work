@@ -65,7 +65,7 @@ void createBoard(char testFile[])
         printBoard(board);
 }
 
-void printBoard(char testFile[]) 
+void printInitBoard(char testFile[]) 
 {
         //creation of ifstream class object to read file
         ifstream inputStream;
