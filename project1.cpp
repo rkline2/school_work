@@ -29,6 +29,42 @@ int checkCol(int i, int col)
         return col; 
 }
 
+/*void gamePlay(char gameBoard)
+{
+
+}*/
+
+void printBoard(int board[][4])
+{
+        for(int i=0; i<4; i++)
+        {
+                for(int j=0; j<4; j++)
+                {
+                        cout << board[i][j];
+                }
+        }
+}
+
+void createBoard(char testFile[])
+{
+        int board[4][4], num = 0;
+
+        ifstream inputStream;
+
+        inputStream.open(testFile);
+
+        for(int i=0; i<4; i++)
+        {
+                for(int j=0; j<4; j++)
+                {
+                        inputStream >> num;
+                        board[i][j] = num;
+                }
+        }
+
+        printBoard(board);
+}
+
 void printBoard(char testFile[]) 
 {
         //creation of ifstream class object to read file
@@ -78,13 +114,19 @@ void printBoard(char testFile[])
 
 int main() 
 {
-        char test1[15], test2[15], test3[15], testFile[15];
+        char testFile[15] = {0}, gameBoard[15] = {0};
 
         cout << "Enter test file: ";
         cin >> testFile;
         cout << "Test file chosen: " << testFile << endl << endl;
 
-        printBoard(testFile);
+        //start of game
+        //printInitBoard(testFile);
+
+        createBoard(testFile);
+
+        //create testFile pointer and pass it into gamePlay function
+        cout << "Test file: " << &testFile << endl;
 
         return 0;
 }
